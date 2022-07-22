@@ -9,5 +9,6 @@ L'annotation des coréférences a été faite suivant le "Manuel d’annotation 
 L'annotation des entités nommées suit le guide d'annotation pour FrenchBookNLP, produit à partir du guide d'anntotation de la version multilangue de BookNLP [LIEN]. 
 
 ## ANNOTATIONS
+Les prédictions
 
-## REMARQUES 
+## REMARQUES SUR LES CORRECIONS
