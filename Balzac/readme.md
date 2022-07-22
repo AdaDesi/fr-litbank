@@ -21,18 +21,22 @@ Les
 ## REMARQUES SUR LES CORRECIONS
 
 Après la vérification des annotations faites par French BookNLP, je peux tirer les remarques suivantes :
-1. De manière générale, j'ai plus éliminé qu’ajouter des entités et des coréférences ; j'en ai modifié de nombreuses aussi ;
-2. On trouve systématiquement une coréférence entre une entité constituée par une coordination (« et ») et le premier terme de la coordination ;
-3. Les âges sont systématiquement annotés comme TIME ;
-4. Presque systématiquement, des parties d’un immeuble sont annotées comme FAC ;
-5. On trouve souvent des coréférences entre des mots qui ne représentent pas des entités
-à annoter et leurs pronoms relatifs ;
-6. De manière générale, les entités qui ont une coréférence sont liées à la première tête de
-chaîne qui les précède, même si elles se réfèrent en réalité à une entité précédente ;
-7. Les chaînes de coréférences sont très souvent interrompues ;
-8. Souvent les verbes sont annotés comme PERS et parfois sont liés par une coréférence à
-leur sujet ;
-9. Je n'ai pas pu reconnaître une règle pour le traitement des apostrophes : les entités qui
-en contiennent sont parfois composés d'une seule lettre, isolée ou faisant partie d'un mot, parfois d'un mot entier, et parfois on trouve une double coréférence de chaque partie de l’apostrophe ;
-10. Les mots du champ lexical de la nature (« la nature », « le ciel », « le soleil », « le monde », « la pluie », « le temps », etc.) sont généralement annotés comme LOC, sauf quand ils sont le sujet d'un verbe, et dans ce cas ils sont annotés comme PERS.
+1.	De manière générale, j'ai l'impression d'avoir plus éliminé qu’ajouté des entités et des coréférences ;
+2.	Les chaînes de coréférences sont très souvent interrompues ;
+3.	On trouve systématiquement une coréférence entre une entité constituée par une coordination et le premier terme de la coordination (par exemple, « Augustine et lui » et mis en relation avec « Augustine ») ; quand ce n'est pas le cas, la coordination et sa première partie renvoient à une entité précédente ;
+4.	Il se passe la même chose lorsqu'une entité contient un adjectif possessif, qui fait donc partie de deux entités (par exemple, pour le premier cas, dans « nos filles », « filles » renvoie à « nos » ; pour le deuxième cas, « son atelier » et « son » renvoient toutes les deux à « ce passant ») ;
+5.	Les âges sont systématiquement annotés comme TIME ;
+6.	Les parties d’un immeuble sont presque toujours annotées comme FAC ;
+7.	On trouve souvent des coréférences entre des mots qui ne représentent pas des entités à annoter (par exemple « la queue ») et leurs pronoms relatifs ;
+8.	De manière générale, les entités qui ont une coréférence sont liées à la première tête de chaîne qui les précède, même si elles se réfèrent en réalité à une entité précédente ;
+9.	Souvent les verbes sont annotés comme PERS et parfois sont liés par une coréférence à leur sujet ;
+10.	Je n'ai pas pu reconnaître une règle pour le traitement des apostrophes : les entités qui en contiennent sont parfois composés d'une seule lettre, qui peut être isolée (par exemple, « l' » dans « l'avaient ») ou qui peut faire partie d'un mot (par exemple, « l'e » dans « l'embrasse », ou « qu'e » dans « qu'elle »), parfois d'un mot entier (par exemple « l'artiste ») ;
+11.	Les mots du champ lexical de la nature (« la nature », « le ciel », « le soleil », « le monde », « la pluie », « le temps », etc.) sont généralement annotés comme LOC, sauf quand ils sont le sujet d'un verbe, et dans ce cas ils sont annotés comme PERS.  
 
+
+|Très fréquent|Fréquent|Occasionnel|Autre|
+|---|---|---|---|---|
+|Chaîne de coréférence interrompue|Annotation de parties d'immeubles annotées comme FAC|Annotation de mots du champs lexical de la nature comme LOC|Traitement des apostrophes|
+|Présence d'une coréférence entre une entité constituée par une coordination (« et ») et le premier terme de la coordination|Annotation de pronoms relatifs d'entités qu'on n'annote pas|---|---|
+|Présence d'une coréférence entre une entité contenant un adjectif possessif et cet adjectif|Mauvaise coréférence entre une entité et la première tête de chaîne qui la précéde|---|---|
+|Age annoté comme TIME|Verbe conjugué annoté comme PERS et lié à son sujet|---|---|
