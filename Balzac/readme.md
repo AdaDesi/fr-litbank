@@ -1,13 +1,14 @@
-### dossier pour stage ada
+### Dossier pour stage Ada - avril/juillet 2022
 
 Ce dossier contient les prédictions, ainsi que les fichiers d'annotation corrigés pour deux romans de Balzac :
 1. *La maison du Chat-qui-pelote*
 2. *La maison Nucingen*
-Il contient aussi les scripts Python utilisés pour nettoyer le fichier avec les prédictions, afin qu'il soit lu correctement par Brat.
+
+Il contient aussi les scripts Python utilisés pour nettoyer le fichier avec les prédictions, afin qu'il soit lu correctement par Brat, l'outil utilisé pour l'annotation.
 
 La vérification de ces annotations, produites par le logiciel FrenchBookNLP, a été faite dans le cadre d'un stage de M2, réalisé au sein d'Obtic, équipe-projet du SCAI (Sorbonne Center for Artificial Intelligence) dédié aux humanités numériques, en collaboration avec le laboratoire Lattice (CNRS). 
-L'annotation des coréférences a été faite suivant le "Manuel d’annotation du corpus et organisation de formations sur l’annotation" crée pour le projet Democrat [LIEN].
-L'annotation des entités nommées suit le guide d'annotation pour FrenchBookNLP, produit à partir du guide d'anntotation de la version multilangue de BookNLP [LIEN]. 
+L'annotation des coréférences a été faite suivant le "Manuel d’annotation du corpus et organisation de formations sur l’annotation" crée pour le projet Democrat [(https://www.lattice.cnrs.fr/democrat/files/ANR-15-CE38-0008-DEMOCRAT_livrable_methodo.pdf)].
+L'annotation des entités nommées suit le guide d'annotation pour FrenchBookNLP, produit à partir du guide d'anntotation de la version multilangue de BookNLP [https://github.com/booknlp/booknlp]. 
 Ce travail a été accompli par Ada Desideri (étudiante de M2), avec l'aide de Johanna Cordova (ingénieure d'étude à Obtic), Marco Naguib et Frédérique Mélanie (ingénieurs d'étude au Lattice), et en dialoguant avec Motasem Alrahabi (coordinateur scientifique d'Obtic). 
 
 ## REMARQUES SUR LES CORRECTIONS
@@ -34,14 +35,14 @@ Après la vérification des annotations faites par French BookNLP, je peux tir
 |Age annoté comme TIME|Verbe conjugué annoté comme PERS et lié à son sujet| | |
 
 ## ANNOTATIONS
-Les prédictions ont été corrigées au moyen du logiciel Brat [LIEN]. Celui-ci ne permettait pas de lire le fichier avec toutes les annotations, que nous avons donc splitté, au moyen de la commande split de Bash; ensuite, puisqu'il manquait une des deux entités de certaines coréférences, nous avons ajouté à la main les entités qui permettaient de rétablir la liaison. 
+Les prédictions ont été corrigées au moyen du logiciel Brat [https://brat.nlplab.org/]. Celui-ci ne permettait pas de lire le fichier avec toutes les annotations, que nous avons donc splitté, au moyen de la commande "split" de Bash; ensuite, puisqu'il manquait une des deux entités de certaines coréférences, nous avons ajouté à la main les entités qui permettaient de rétablir la liaison. 
 
 Nous avions préalablement apporté quelques **modifications aux fichiers contenant les prédictions et les textes** :
 1. Dans le fichier des prédictions, nous avons substitué le caractère « ‘ » par le caractère « ’ » pour l'apostrophe, car il n'était pas le même dans le fichier texte et dans le fichier des prédictions ;
 2. Le fichier avec les prédictions contenait des incohérences dûes à la gestion des espaces blancs et des retours chariot. Nous avons alors rétabli les bonnes bornes pour les mots, au moyen des deux scripts fournies.
 
-**Lors de la vérification des prédictions sur Brat**, j'ai fait les choix suivants :
-1. En passant d'un fichier d'annotation au suivant, au moment de l'ouverture du deuxième, je remonte quelques lignes pour annoter les dernières entités qui apparaissaient dans le fichier précédent, afin de les relier aux éventuelles nouvelles occurrences. Donc, pour une entité donnée, la tête de chaîne du deuxième fichier correspond au dernier maillon de la chaîne du fichier précédent.
+**Lors de la vérification des annotations sur Brat**, j'ai fait les choix suivants :
+1. En passant d'un fichier d'annotation au suivant, au moment de l'ouverture du deuxième, je remonte 2 ou 3 lignes pour annoter les dernières entités qui apparaissaient dans le fichier précédent, afin de les relier aux éventuelles nouvelles occurrences. Donc, pour une entité donnée, la tête de chaîne du deuxième fichier correspond au dernier maillon de la chaîne du fichier précédent.
 2. De manière générale, pour établir une coréférence à partir d'un certain mot, je le lie au dernier maillon le plus explicite de la chaîne; par exemple, si on a une chaine composée par "Augustine->elle->sa fille->Augustine->elle", et que l'on doit ajouter "la femme du peintre" à cette chaîne, on crée une coréférence entre "la femme du peintre" et la dernière occurrence de "Augustine".
 
 **En ce qui concerne l'annotation des personnages**, j'ai essayé d'établir des cas le plus précis possibles pour décider si un certain syntagme représente une entité nommée ou pas. De manière générale, j'ai privilegié les interprétations du texte selons lesquelles un syntagme représenterait une entité nommée.
